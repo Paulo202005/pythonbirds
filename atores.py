@@ -106,7 +106,9 @@ class Passaro(Ator):
         o status dos Passaro deve ser alterado para destruido, bem como o seu caracter
 
         """
-        pass
+        if self.y <= 0:
+            self.status = DESTRUIDO
+
 
     def calcular_posicao(self, tempo):
         """
@@ -154,7 +156,7 @@ class Passaro(Ator):
         x_atual = self._x_inicial
         angulo_radianos = math.radians(self._angulo_de_lancamento)
         x_atual += self.velocidade_escalar * delta_t * math.cos(angulo_radianos)
-        x_atual -= x_atual
+        self.x = x_atual
 
 
 class PassaroAmarelo(Passaro):
